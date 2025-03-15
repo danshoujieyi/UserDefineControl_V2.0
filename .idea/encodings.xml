@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Core/Src/main.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic1.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic1.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic2.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic3.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic4.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic4.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic5.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic5.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic6.c" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Core/Virtual_IIC/iic6.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Virtual_IIC/iic.h" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/Virtual_IIC/iic1.c" charset="GBK" />
+    <file url="PROJECT" charset="GBK" />
+  </component>
+</project>
