@@ -96,7 +96,7 @@ void USART2_SendEntry(void const * argument)
             DMA_Send_Frame();
         }
 
-        vTaskDelay(15); // 延迟 10ms
+        vTaskDelay(12); // 延迟 10ms
 
     }
     /* USER CODE END USART2_SendEntry */

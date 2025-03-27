@@ -57,7 +57,7 @@ void EncoderEntry(void const * argument)
             //printf("Queue send failed for encoder \r\n");
         }
 
-        vTaskDelay(15); // 延迟 10ms
+        vTaskDelay(12); // 延迟 10ms
 
     }
     /* USER CODE END EncoderEntry */
