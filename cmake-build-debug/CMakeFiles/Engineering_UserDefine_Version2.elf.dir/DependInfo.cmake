@@ -32,6 +32,7 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/include"
   "D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"
   "D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"
+  "D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/ST/ARM/DSP/Inc"
   "D:/GitHub_Project/UserDefineControl_V2.0/USER"
   "D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC"
   )

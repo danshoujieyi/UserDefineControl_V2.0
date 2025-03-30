@@ -38,6 +38,7 @@
 					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/include"/>
 					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"/>
 					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
+					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/ST/ARM/DSP/Inc"/>
 					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/USER"/>
 					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC"/>
 					<Add directory="I:/arm-gnu-gcc13.3/13.3 rel1/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1"/>
@@ -75,6 +76,7 @@
 					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/include"/>
 					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS"/>
 					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F"/>
+					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/ST/ARM/DSP/Inc"/>
 					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/USER"/>
 					<Add directory="D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC"/>
 					<Add directory="I:/arm-gnu-gcc13.3/13.3 rel1/bin/../lib/gcc/arm-none-eabi/13.3.1/../../../../arm-none-eabi/include/c++/13.3.1"/>
@@ -410,6 +412,15 @@
 			<Option target="Engineering_UserDefine_Version2.elf"/>
 		</Unit>
 		<Unit filename="D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c">
+			<Option target="Engineering_UserDefine_Version2.elf"/>
+		</Unit>
+		<Unit filename="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/ST/ARM/DSP/Inc/arm_math.h">
+			<Option target="Engineering_UserDefine_Version2.elf"/>
+		</Unit>
+		<Unit filename="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a">
+			<Option target="Engineering_UserDefine_Version2.elf"/>
+		</Unit>
+		<Unit filename="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/ARM/DSP/LICENSE.txt">
 			<Option target="Engineering_UserDefine_Version2.elf"/>
 		</Unit>
 		<Unit filename="D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c">

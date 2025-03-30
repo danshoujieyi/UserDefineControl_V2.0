@@ -842,6 +842,7 @@ Engineering_UserDefine_Version2.elf: CMakeFiles/Engineering_UserDefine_Version2.
 Engineering_UserDefine_Version2.elf: CMakeFiles/Engineering_UserDefine_Version2.elf.dir/Virtual_IIC/iic5.c.obj
 Engineering_UserDefine_Version2.elf: CMakeFiles/Engineering_UserDefine_Version2.elf.dir/Virtual_IIC/iic6.c.obj
 Engineering_UserDefine_Version2.elf: CMakeFiles/Engineering_UserDefine_Version2.elf.dir/build.make
+Engineering_UserDefine_Version2.elf: D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a
 Engineering_UserDefine_Version2.elf: CMakeFiles/Engineering_UserDefine_Version2.elf.dir/objects1.rsp
 Engineering_UserDefine_Version2.elf: CMakeFiles/Engineering_UserDefine_Version2.elf.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=D:\GitHub_Project\UserDefineControl_V2.0\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Linking C executable Engineering_UserDefine_Version2.elf"

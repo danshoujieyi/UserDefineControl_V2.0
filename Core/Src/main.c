@@ -59,10 +59,42 @@ void MX_FREERTOS_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-void delayUs(uint32_t times)
-{
-    for(uint32_t j=0;j<10;j++);
+TIM_HandleTypeDef htim2;
+
+void BSP_Delay_Init(void) {
+    __HAL_RCC_TIM2_CLK_ENABLE();
+
+    htim2.Instance = TIM2;
+    htim2.Init.Prescaler = 83;  // (SystemCoreClock / 1000000) - 1;
+    htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+    htim2.Init.Period = 0xFFFFFFFF;
+    htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+    HAL_TIM_Base_Init(&htim2);
+    HAL_TIM_Base_Start(&htim2);
 }
+
+void delayUs(uint32_t us) {
+    taskENTER_CRITICAL();  // 多任务系统临界区保护，避免被切换打断延时
+    uint32_t start = TIM2->CNT;
+    uint32_t elapsed;
+    do {
+        uint32_t current = TIM2->CNT;
+        elapsed = (current >= start) ? (current - start) : (0xFFFFFFFF - start + current);
+    } while (elapsed < us);
+    taskEXIT_CRITICAL();
+}
+
+void delay_us_safe(uint32_t us) {
+    taskENTER_CRITICAL();
+    uint32_t start = TIM2->CNT;
+    while ((TIM2->CNT - start) < us);  //不带有定时器溢出保护
+    taskEXIT_CRITICAL();
+}
+
+//void delayUs(uint32_t times)
+//{
+//    for(uint32_t j=0;j<10;j++);
+//}
 
 /* USER CODE END 0 */
 
@@ -98,7 +130,7 @@ int main(void)
   MX_DMA_Init();
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
-
+    BSP_Delay_Init();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */

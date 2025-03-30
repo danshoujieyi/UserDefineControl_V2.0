@@ -6,6 +6,7 @@
 #include "filter.h"
 #include "main.h"
 #include "encoder.h"
+#include "arm_math.h"
 
 #define QUEUE_LENGTH 21    // 队列长度，可根据需要调整
 #define QUEUE_ITEM_SIZE sizeof(float)*6 // 每个队列元素占用的字节数
@@ -27,7 +28,8 @@ void EncoderEntry(void const * argument)
         // 队列创建失败，进入错误处理
         Error_Handler();
     }
-
+    float cnt = arm_sin_f32(30 * PI/180.0); // 用于DSP测试
+    float a = 0;
     // 初始化每个滤波器
     for (int i = 0; i < 6; i++)
     {
@@ -37,6 +39,7 @@ void EncoderEntry(void const * argument)
     /* Infinite loop */
     for(;;)
     {
+        a = cnt; // 用于DSP测试
         for (int i = 0; i < 6; i++)
         {
             // 模拟获取编码器的原始角度值（实际中应替换为传感器接口）
