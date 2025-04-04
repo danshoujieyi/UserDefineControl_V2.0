@@ -6,7 +6,9 @@
 #include "filter.h"
 #include "main.h"
 #include "encoder.h"
-#include "arm_math.h"
+#include "../Middlewares/ST/ARM/DSP/Inc/arm_math.h"
+#include "../Hardware_IIC/Hardwareiic1.h"
+
 
 #define QUEUE_LENGTH 21    // 队列长度，可根据需要调整
 #define QUEUE_ITEM_SIZE sizeof(float)*6 // 每个队列元素占用的字节数
@@ -43,7 +45,7 @@ void EncoderEntry(void const * argument)
         for (int i = 0; i < 6; i++)
         {
             // 模拟获取编码器的原始角度值（实际中应替换为传感器接口）
-            raw_angle[0] = getRawAngle1();
+            raw_angle[0] = Hardware_getRawAngle1();
             raw_angle[1] = getRawAngle2();
             raw_angle[2] = getRawAngle3();
             raw_angle[3] = getRawAngle4();
