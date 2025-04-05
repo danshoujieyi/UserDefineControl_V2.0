@@ -3,6 +3,7 @@
 //
 
 #include "filter.h"
+#include "Hardware_i2c1.h"
 
 /**
  * @brief 初始化滤波器
@@ -126,6 +127,7 @@ float adaptiveLowPassFilter(AngleFilter *filter, float newAngle)
  * @param rawAngle 编码器的原始角度值 (0 - 4095)
  * @retval 滤波后的角度值
  */
+
 float processAngle(AngleFilter *filter, int16_t rawAngle)
 {
     // 转换为角度值
@@ -137,6 +139,10 @@ float processAngle(AngleFilter *filter, int16_t rawAngle)
     // 计算中位值平均
     float medianAverage = calculateMedianAverage(filter);
 
+   // KalmanFilter kf;
+   // KalmanFilter_Init(&kf, 100, 2, 0.1, 0.01);//初始化卡尔曼滤波结构体//写的时候编码器稳定，没有进行精确测量
+   // float kalmanfilter_value=KalmanFilter_Update(&kf,medianAverage);
     // 应用自适应低通滤波
     return adaptiveLowPassFilter(filter, medianAverage);
 }
+

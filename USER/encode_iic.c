@@ -49,7 +49,7 @@ void EncoderEntry(void const * argument)
 
             // 模拟获取编码器的原始角度值（实际中应替换为传感器接口）
             raw_angle[0] = Read_Encoder_Angle1();
-            angles_encoder[0] = processAngle(&filters[0], raw_angle[0]);
+            angles_encoder[0] = processAngle(&filters[0], raw_angle[0]);// 处理编码器角度，获取滤波后的角度值
             raw_angle[1] = getRawAngle2();
             angles_encoder[1] = processAngle(&filters[1], raw_angle[1]);
             raw_angle[2] = getRawAngle3();
@@ -59,7 +59,7 @@ void EncoderEntry(void const * argument)
             raw_angle[4] = Read_Encoder_Angle5();
             angles_encoder[4] = processAngle(&filters[4], raw_angle[4]);
             raw_angle[5] = Read_Encoder_Angle6();
-            angles_encoder[5] = processAngle(&filters[5], raw_angle[5]);// 处理编码器角度，获取滤波后的角度值
+            angles_encoder[5] = processAngle(&filters[5], raw_angle[5]);
             //printf("Encoder %d angle: %f \r\n", i, angles_encoder[i]);
 
 
