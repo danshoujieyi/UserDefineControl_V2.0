@@ -7,7 +7,8 @@
 #include "main.h"
 #include "encoder.h"
 #include "../Middlewares/ST/ARM/DSP/Inc/arm_math.h"
-#include "../Hardware_IIC/Hardwareiic1.h"
+#include "i2c.h"
+#include "Hardware_i2c1.h"
 
 
 #define QUEUE_LENGTH 21    // 队列长度，可根据需要调整
@@ -19,6 +20,9 @@ QueueHandle_t xQueue;      // 队列句柄
 static float angles_encoder[6]; // 全局共享数组
 static int16_t raw_angle[6] = {0}; // 全局共享变量
 AngleFilter filters[6]; // 定义 6 个编码器对应的滤波器
+
+
+
 
 
 void EncoderEntry(void const * argument)
@@ -42,19 +46,22 @@ void EncoderEntry(void const * argument)
     for(;;)
     {
         a = cnt; // 用于DSP测试
-        for (int i = 0; i < 6; i++)
-        {
+
             // 模拟获取编码器的原始角度值（实际中应替换为传感器接口）
-            raw_angle[0] = Hardware_getRawAngle1();
+            raw_angle[0] = Read_Encoder_Angle1();
+            angles_encoder[0] = processAngle(&filters[0], raw_angle[0]);
             raw_angle[1] = getRawAngle2();
+            angles_encoder[1] = processAngle(&filters[1], raw_angle[1]);
             raw_angle[2] = getRawAngle3();
+            angles_encoder[2] = processAngle(&filters[2], raw_angle[2]);
             raw_angle[3] = getRawAngle4();
-            raw_angle[4] = getRawAngle5();
-            raw_angle[5] = getRawAngle6();
-            // 处理编码器角度，获取滤波后的角度值
-            angles_encoder[i] = processAngle(&filters[i], raw_angle[i]);
+            angles_encoder[3] = processAngle(&filters[3], raw_angle[3]);
+            raw_angle[4] = Read_Encoder_Angle5();
+            angles_encoder[4] = processAngle(&filters[4], raw_angle[4]);
+            raw_angle[5] = Read_Encoder_Angle6();
+            angles_encoder[5] = processAngle(&filters[5], raw_angle[5]);// 处理编码器角度，获取滤波后的角度值
             //printf("Encoder %d angle: %f \r\n", i, angles_encoder[i]);
-        }
+
 
         // 将编码器数据放入队列
         if (xQueueSend(xQueue, angles_encoder, 0) != pdPASS) {
