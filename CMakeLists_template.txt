@@ -51,6 +51,7 @@ endif ()
 include_directories(${includes}
     USER
     Virtual_IIC
+    Hardware_IIC
 )
 
 add_definitions(${defines})
@@ -58,6 +59,7 @@ add_definitions(${defines})
 file(GLOB_RECURSE SOURCES ${sources}
     "USER/*.*"
     "Virtual_IIC/*.*"
+    "Hardware_IIC/*.*"
 )
 
 set(LINKER_SCRIPT $${CMAKE_SOURCE_DIR}/${linkerScript})
@@ -70,6 +72,8 @@ add_executable($${PROJECT_NAME}.elf $${SOURCES} $${LINKER_SCRIPT})
 
 set(HEX_FILE $${PROJECT_BINARY_DIR}/$${PROJECT_NAME}.hex)
 set(BIN_FILE $${PROJECT_BINARY_DIR}/$${PROJECT_NAME}.bin)
+
+target_link_libraries(${PROJECT_NAME}.elf ${CMAKE_SOURCE_DIR}/Middlewares/ST/ARM/DSP/Lib/libarm_cortexM4lf_math.a)
 
 add_custom_command(TARGET $${PROJECT_NAME}.elf POST_BUILD
         COMMAND $${CMAKE_OBJCOPY} -Oihex $<TARGET_FILE:$${PROJECT_NAME}.elf> $${HEX_FILE}
