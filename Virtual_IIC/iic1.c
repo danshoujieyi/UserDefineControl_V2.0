@@ -18,11 +18,11 @@
 /************************************************
  ** 电平控制简化_宏定义
  ***********************************************/
-#define SCL_L      (I2C_MONI_SCL_GPIO1->BSRR = (I2C_MONI_SCL_PIN1 << 16))
+#define SCL_L      (I2C_MONI_SCL_GPIO1->BSRR = (I2C_MONI_SCL_PIN1 << 16))//BSRR寄存器32位用于设置和清除 GPIO 引脚的状态，高16位->低电平,低16位高电平
 #define SCL_H      (I2C_MONI_SCL_GPIO1->BSRR =  I2C_MONI_SCL_PIN1)
 #define SDA_L      (I2C_MONI_SDA_GPIO1->BSRR = (I2C_MONI_SDA_PIN1 << 16))
 #define SDA_H      (I2C_MONI_SDA_GPIO1->BSRR =  I2C_MONI_SDA_PIN1)
-#define SDA_READ   ((I2C_MONI_SDA_GPIO1->IDR & I2C_MONI_SDA_PIN1)?1:0)       // 不用改成输入模式就能读
+#define SDA_READ   ((I2C_MONI_SDA_GPIO1->IDR & I2C_MONI_SDA_PIN1)?1:0) // 不用改成输入模式就能读//IDR 寄存器用来存储该端口所有引脚的当前输入电平状态
 
 
 /*****************************************************************************
@@ -103,7 +103,7 @@ static void isBusy(void)
     while((SDA_READ) == 0 && (--i))  // 读取sda线上的电平状态，低电平说明总线被从机控制，高电平则说明总线空闲，可以准备发送开始信号
     {
         SCL_L;
-        delayUs(1);
+        delayUs(1);//防止跟不上
         SCL_H ;
         delayUs(1);
     }
@@ -120,12 +120,12 @@ static void start(void)
 {
     isBusy ();               // 判断总线是否处于空闲状态
 
-    SCL_L;   delayUs(1);
-    SDA_H;   delayUs(1);
+    SCL_L;   delayUs(1);     // 将SCL拉低并延时，确保SCL电平稳定。兼容重复起始条件
+    SDA_H;   delayUs(1);     // 将SDA拉高并延时，为后续跳变做准备
 
-    SCL_H;   delayUs(1);
-    SDA_L;   delayUs(1);     // 在SCL高电平其间， SDA由高向低 跳变
-    SCL_L;   delayUs(1);     // 将SCL拉低,钳住SCL线,准备发送数据
+    SCL_H;   delayUs(1);     // 将SCL拉高并延时，使SCL保持高电平
+    SDA_L;   delayUs(1);     // 在SCL高电平期间，SDA由高向低跳变，产生起始条件
+    SCL_L;   delayUs(1);     // 将SCL拉低，钳住SCL线，准备发送数据
 }
 
 
@@ -461,7 +461,6 @@ int16_t getRawAngle1(void)
     IICSoft_ReadBueffer(_ams5600_Address, _raw_ang_hi, (uint8_t *) Raw1, 2);
     getRaw1 = (Raw1[0] << 8 | Raw1[1]);
     return getRaw1;
-
 }
 
 /*******************************************************

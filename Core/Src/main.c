@@ -20,6 +20,7 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "dma.h"
+#include "i2c.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -74,20 +75,22 @@ void BSP_Delay_Init(void) {
 }
 
 void delayUs(uint32_t us) {
-    taskENTER_CRITICAL();  // ¶àÈÎÎñÏµÍ³ÁÙ½çÇø±£»¤£¬±ÜÃâ±»ÇÐ»»´ò¶ÏÑÓÊ±
+    taskENTER_CRITICAL();
     uint32_t start = TIM2->CNT;
     uint32_t elapsed;
     do {
         uint32_t current = TIM2->CNT;
         elapsed = (current >= start) ? (current - start) : (0xFFFFFFFF - start + current);
     } while (elapsed < us);
+    HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_SET);
     taskEXIT_CRITICAL();
 }
 
 void delay_us_safe(uint32_t us) {
     taskENTER_CRITICAL();
     uint32_t start = TIM2->CNT;
-    while ((TIM2->CNT - start) < us);  //²»´øÓÐ¶¨Ê±Æ÷Òç³ö±£»¤
+    while ((TIM2->CNT - start) < us);  //ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     taskEXIT_CRITICAL();
 }
 
@@ -129,8 +132,11 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_USART2_UART_Init();
+  MX_I2C1_Init();
+  MX_I2C2_Init();
+  MX_I2C3_Init();
   /* USER CODE BEGIN 2 */
-    BSP_Delay_Init();
+  BSP_Delay_Init();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
@@ -215,7 +221,8 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM4) {
+  if (htim->Instance == TIM4)
+  {
     HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
