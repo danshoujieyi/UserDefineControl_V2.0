@@ -27,7 +27,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+QueueHandle_t xQueue = NULL; // ���о��
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -37,7 +37,8 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-
+#define QUEUE_LENGTH 5    // ���г��ȣ��ɸ�����Ҫ����
+#define QUEUE_ITEM_SIZE sizeof(float)*6 // ÿ������Ԫ��ռ�õ��ֽ���
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -117,7 +118,12 @@ int main(void)
   MX_I2C3_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+    // ��������
+    xQueue = xQueueCreate(QUEUE_LENGTH, QUEUE_ITEM_SIZE);
+    if (xQueue == NULL) {
+        // ���д���ʧ�ܣ����������
+        Error_Handler();
+    }
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */

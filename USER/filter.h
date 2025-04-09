@@ -9,11 +9,10 @@
 #include <math.h>
 #include "iic1.h"
 
-#define DATA_SIZE 20        // 数据窗口大小
-#define ALPHA_MIN 0.1f      // 自适应低通滤波的最小系数
-#define ALPHA_MAX 0.9f      // 自适应低通滤波的最大系数
-#define DELTA_MAX 200.0f    // 最大角度变化范围（用于自适应调整系数）
-#define MAX_ANGLE 360.0f    // 最大角度值
+#define DATA_SIZE 5        // 数据窗口大小
+#define ALPHA_MIN 0.3f      // 自适应低通滤波的最小系数
+#define ALPHA_MAX 0.7f      // 自适应低通滤波的最大系数
+#define DELTA_MAX 175.0f    // 最大角度变化范围（用于自适应调整系数）
 
 /**
  * @brief 滤波器结构体定义

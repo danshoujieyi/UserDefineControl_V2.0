@@ -58,15 +58,9 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define IIC_SDA6_Pin GPIO_PIN_2
-#define IIC_SDA6_GPIO_Port GPIOE
-#define IIC_SCL1_Pin GPIO_PIN_0
-#define IIC_SCL1_GPIO_Port GPIOC
-#define IIC_SDA1_Pin GPIO_PIN_1
-#define IIC_SDA1_GPIO_Port GPIOC
-#define IIC_SCL2_Pin GPIO_PIN_2
+#define IIC_SCL2_Pin GPIO_PIN_4
 #define IIC_SCL2_GPIO_Port GPIOA
-#define IIC_SDA2_Pin GPIO_PIN_3
+#define IIC_SDA2_Pin GPIO_PIN_5
 #define IIC_SDA2_GPIO_Port GPIOA
 #define IIC_SCL3_Pin GPIO_PIN_4
 #define IIC_SCL3_GPIO_Port GPIOC
@@ -76,42 +70,9 @@ void Error_Handler(void);
 #define IIC_SCL4_GPIO_Port GPIOE
 #define IIC_SDA4_Pin GPIO_PIN_13
 #define IIC_SDA4_GPIO_Port GPIOE
-#define IIC_SCL5_Pin GPIO_PIN_12
-#define IIC_SCL5_GPIO_Port GPIOB
-#define IIC_SDA5_Pin GPIO_PIN_13
-#define IIC_SDA5_GPIO_Port GPIOB
-#define IIC_SCL6_Pin GPIO_PIN_1
-#define IIC_SCL6_GPIO_Port GPIOE
 
 /* USER CODE BEGIN Private defines */
 void delayUs(uint32_t times);
-
-#define Trans_Len 25   //����������
-/**
-  * @brief  �Զ����ȡ������������ͨѶ֡�ṹ��
-  */
-//typedef  struct
-//{
-//    uint8_t HEAD;          /*! ֡ͷ */
-//    uint8_t LEN;                    /*! ���ݳ��� */
-//    uint8_t DATA[Trans_Len];    /*! �������� 0-5*/
-//    uint8_t SC;           /*! ��У�� */
-//    uint8_t AC;           /*! ����У�� */
-//}__attribute__((packed)) TransType;
-//
-//TransType Trans_tx_data = {
-//        .HEAD = 0xFF,
-//        .LEN = Trans_Len,
-//        .DATA = {0},
-//        .SC = 0,
-//        .AC = 0,
-//};
-
-//float angle1,angle2,angle3,angle4,angle5,angle6=0;
-//uint16_t rawdata1,rawdata2,rawdata3,rawdata4,rawdata5,rawdata6=0;
-//float degress1,degress2,degress3,degress4,degress5,degress6 =0;
-//#define average_len 10
-//#define error 10
 
 /* USER CODE END Private defines */
 

@@ -75,4 +75,6 @@ CMakeFiles/Engineering_UserDefine_Version2.elf.dir/USER/usart2_send.c.obj: \
  I:/ARM-GN~1.3/133167~1.3RE/arm-none-eabi/include/stdlib.h \
  I:/ARM-GN~1.3/133167~1.3RE/arm-none-eabi/include/machine/stdlib.h \
  I:/ARM-GN~1.3/133167~1.3RE/arm-none-eabi/include/alloca.h \
- I:/ARM-GN~1.3/133167~1.3RE/arm-none-eabi/include/math.h
+ I:/ARM-GN~1.3/133167~1.3RE/arm-none-eabi/include/math.h \
+ D:\GitHub_Project\UserDefineControl_V2.0\Core\Inc/usart.h \
+ D:\GitHub_Project\UserDefineControl_V2.0\Core\Inc/main.h

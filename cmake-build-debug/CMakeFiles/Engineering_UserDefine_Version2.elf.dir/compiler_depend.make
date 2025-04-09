@@ -1827,7 +1827,6 @@ CMakeFiles/Engineering_UserDefine_Version2.elf.dir/USER/crc8_crc16.c.obj: D:/Git
 
 CMakeFiles/Engineering_UserDefine_Version2.elf.dir/USER/encode_iic.c.obj: D:/GitHub_Project/UserDefineControl_V2.0/USER/encode_iic.c \
   D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/FreeRTOSConfig.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/i2c.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/main.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/stm32f4xx_hal_conf.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h \
@@ -1875,7 +1874,6 @@ CMakeFiles/Engineering_UserDefine_Version2.elf.dir/USER/encode_iic.c.obj: D:/Git
   D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h \
   D:/GitHub_Project/UserDefineControl_V2.0/USER/encode_iic.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/USER/encoder.h \
   D:/GitHub_Project/UserDefineControl_V2.0/USER/filter.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic1.h \
@@ -1987,6 +1985,7 @@ CMakeFiles/Engineering_UserDefine_Version2.elf.dir/USER/usart2_send.c.obj: D:/Gi
   D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/FreeRTOSConfig.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/main.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/stm32f4xx_hal_conf.h \
+  D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/usart.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
   D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
@@ -2313,133 +2312,9 @@ CMakeFiles/Engineering_UserDefine_Version2.elf.dir/Virtual_IIC/iic4.c.obj: D:/Gi
   I:/arm-gnu-gcc13.3/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
   I:/arm-gnu-gcc13.3/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stdint.h
 
-CMakeFiles/Engineering_UserDefine_Version2.elf.dir/Virtual_IIC/iic5.c.obj: D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic5.c \
-  D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/main.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/stm32f4xx_hal_conf.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Include/cmsis_compiler.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Include/cmsis_gcc.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Include/cmsis_version.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Include/core_cm4.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Include/mpu_armv7.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic1.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic2.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic3.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic4.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic5.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic6.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/_ansi.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/_newlib_version.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/alloca.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/machine/_default_types.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/machine/_types.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/machine/ieeefp.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/machine/stdlib.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/math.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/newlib.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/stdint.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/stdio.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/stdlib.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/_intsup.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/_stdint.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/_types.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/cdefs.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/config.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/features.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/lock.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/reent.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/stdio.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stdarg.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stdint.h
+CMakeFiles/Engineering_UserDefine_Version2.elf.dir/Virtual_IIC/iic5.c.obj: D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic5.c
 
-CMakeFiles/Engineering_UserDefine_Version2.elf.dir/Virtual_IIC/iic6.c.obj: D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic6.c \
-  D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/main.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Core/Inc/stm32f4xx_hal_conf.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Include/cmsis_compiler.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Include/cmsis_gcc.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Include/cmsis_version.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Include/core_cm4.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/CMSIS/Include/mpu_armv7.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_exti.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic1.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic2.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic3.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic4.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic5.h \
-  D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic6.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/_ansi.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/_newlib_version.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/alloca.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/machine/_default_types.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/machine/_types.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/machine/ieeefp.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/machine/stdlib.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/math.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/newlib.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/stdint.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/stdio.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/stdlib.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/_intsup.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/_stdint.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/_types.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/cdefs.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/config.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/features.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/lock.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/reent.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/arm-none-eabi/include/sys/stdio.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stdarg.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stddef.h \
-  I:/arm-gnu-gcc13.3/13.3\ rel1/lib/gcc/arm-none-eabi/13.3.1/include/stdint.h
+CMakeFiles/Engineering_UserDefine_Version2.elf.dir/Virtual_IIC/iic6.c.obj: D:/GitHub_Project/UserDefineControl_V2.0/Virtual_IIC/iic6.c
 
 
 D:/GitHub_Project/UserDefineControl_V2.0/Core/Src/syscalls.c:
@@ -2757,8 +2632,6 @@ D:/GitHub_Project/UserDefineControl_V2.0/USER/crc8_crc16.c:
 D:/GitHub_Project/UserDefineControl_V2.0/USER/crc8_crc16.h:
 
 D:/GitHub_Project/UserDefineControl_V2.0/USER/encode_iic.h:
-
-D:/GitHub_Project/UserDefineControl_V2.0/USER/encoder.h:
 
 D:/GitHub_Project/UserDefineControl_V2.0/USER/filter.h:
 

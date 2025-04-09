@@ -21,17 +21,16 @@
 #include "usart2_send.h"
 #include "stm32f4xx_hal.h"
 #include "crc8_crc16.h"
+#include "usart.h"
 
-extern UART_HandleTypeDef huart2;
-extern DMA_HandleTypeDef hdma_usart2_tx;
+static uint8_t dma_tx_buffer[2][FRAME_SIZE]; // 双缓冲区
+static volatile uint8_t current_buffer = 0;           // 当前缓冲区索引
+static volatile uint8_t dma_busy = 0;        // DMA状态标志位
 
-uint8_t dma_tx_buffer[2][FRAME_SIZE]; // 双缓冲区
-uint8_t current_buffer = 0;           // 当前缓冲区索引
-volatile uint8_t dma_busy = 0;        // DMA状态标志位
+static float angles[6] = {0.0f}; // 用于临时存储队列中读取的编码器值
+static float encoder_values[6] = {0, 0, 0, 0, 0, 0};              // 存储6个编码器值
 
 extern QueueHandle_t xQueue;    // FreeRTOS 队列句柄
-static float encoder_values[6] = {0, 0, 0, 0, 0, 0};              // 存储6个编码器值
-static float angles[6] = {0.0f}; // 用于临时存储队列中读取的编码器值
 
 void PackData(float *values, uint16_t data_length, RobotArmController_t *tx_data)
 {
@@ -95,8 +94,8 @@ void USART2_SendEntry(void const * argument)
     /* Infinite loop */
     for(;;)
     {
-        // 从队列中获取编码器值（阻塞时间为 10ms，如果队列为空，则跳过）
-        if (xQueueReceive(xQueue, angles, 0) == pdPASS) {
+        // 从队列中获取编码器值
+        if (xQueueReceive(xQueue, angles, 5) == pdPASS) {
             // 更新全局的 encoder_values 数组（可选）
             for (int i = 0; i < 6; i++) {
                 encoder_values[i] = angles[i];

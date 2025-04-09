@@ -4,33 +4,19 @@
 
 #include "encode_iic.h"
 #include "filter.h"
-#include "main.h"
-#include "encoder.h"
 #include "arm_math.h"
-#include "i2c.h"
 #include "Hardware_i2c1.h"
-
-
-#define QUEUE_LENGTH 10    // 队列长度，可根据需要调整
-#define QUEUE_ITEM_SIZE sizeof(float)*6 // 每个队列元素占用的字节数
-
-QueueHandle_t xQueue;      // 队列句柄
 
 // 定义AS5600读取的角度值
 static float angles_encoder[6]; // 全局共享数组
 static int16_t raw_angle[6] = {0}; // 全局共享变量
-AngleFilter filters[6]; // 定义 6 个编码器对应的滤波器
+static AngleFilter filters[6]; // 定义 6 个编码器对应的滤波器
 
+extern QueueHandle_t xQueue;      // 队列句柄
 
 void EncoderEntry(void const * argument)
 {
     /* USER CODE BEGIN EncoderEntry */
-    // 创建队列
-    xQueue = xQueueCreate(QUEUE_LENGTH, QUEUE_ITEM_SIZE);
-    if (xQueue == NULL) {
-        // 队列创建失败，进入错误处理
-        Error_Handler();
-    }
 
     // 初始化每个滤波器
     for (int i = 0; i < 6; i++)
@@ -59,6 +45,7 @@ void EncoderEntry(void const * argument)
 
         // 将编码器数据放入队列
         if (xQueueSend(xQueue, angles_encoder, 0) != pdPASS) {
+            xQueueOverwrite(xQueue, angles_encoder); // 队列已满，覆盖旧数据
             // 队列发送失败处理
             //printf("Queue send failed for encoder \r\n");
         }
