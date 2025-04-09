@@ -95,7 +95,7 @@ void USART2_SendEntry(void const * argument)
     for(;;)
     {
         // 从队列中获取编码器值
-        if (xQueueReceive(xQueue, angles, 5) == pdPASS) {
+        if (xQueueReceive(xQueue, angles, 5) == pdTRUE) {
             // 更新全局的 encoder_values 数组（可选）
             for (int i = 0; i < 6; i++) {
                 encoder_values[i] = angles[i];

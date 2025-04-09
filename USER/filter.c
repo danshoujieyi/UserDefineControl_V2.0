@@ -138,7 +138,8 @@ float processAngle(AngleFilter *filter, int16_t rawAngle)
     // 计算中位值平均
     float medianAverage = calculateMedianAverage(filter);
 
-    // 应用自适应低通滤波
-    return adaptiveLowPassFilter(filter, medianAverage);
+    // 应用自适应低通滤波,不滤波，去除最大最小值直接发送
+   // return adaptiveLowPassFilter(filter, medianAverage);
+    return medianAverage;
 }
 

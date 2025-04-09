@@ -40,15 +40,9 @@ void EncoderEntry(void const * argument)
         angles_encoder[4] = processAngle(&filters[4], raw_angle[4]);
         raw_angle[5] = Read_Encoder_Angle6();
         angles_encoder[5] = processAngle(&filters[5], raw_angle[5]);
-        //printf("Encoder %d angle: %f \r\n", i, angles_encoder[i]);
-
 
         // 将编码器数据放入队列
-        if (xQueueSend(xQueue, angles_encoder, 0) != pdPASS) {
-            xQueueOverwrite(xQueue, angles_encoder); // 队列已满，覆盖旧数据
-            // 队列发送失败处理
-            //printf("Queue send failed for encoder \r\n");
-        }
+        xQueueSend(xQueue, angles_encoder, 0);
 
         vTaskDelay(1); // 延迟 10ms
 
