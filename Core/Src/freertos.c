@@ -106,11 +106,11 @@ void MX_FREERTOS_Init(void) {
 
   /* Create the thread(s) */
   /* definition and creation of USART2_SendTask */
-  osThreadDef(USART2_SendTask, USART2_SendEntry, osPriorityHigh, 0, 1024);
+  osThreadDef(USART2_SendTask, USART2_SendEntry, osPriorityHigh, 0, 2048);
   USART2_SendTaskHandle = osThreadCreate(osThread(USART2_SendTask), NULL);
 
   /* definition and creation of EncoderTask */
-  osThreadDef(EncoderTask, EncoderEntry, osPriorityHigh, 0, 1024);
+  osThreadDef(EncoderTask, EncoderEntry, osPriorityHigh, 0, 2048);
   EncoderTaskHandle = osThreadCreate(osThread(EncoderTask), NULL);
 
   /* definition and creation of myTask03 */

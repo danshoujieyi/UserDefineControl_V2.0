@@ -1,6 +1,21 @@
-//
-// Created by 刘嘉俊 on 25-1-9.
-//
+/******************************************************************************
+ * 文件名      : usart2_send.c
+ * 作者        : Liu Jiajun
+ * 邮箱        : 1873535224@qq.com
+ * 创建日期    : 2025-01-09
+ * 最后修改日期 : 2025-04-09
+ * 版本号      : v1.1.0
+ * 描述        :
+ *  STM32 USART2 发送程序，通过DMA方式发送数据帧。
+ *
+ * 修改记录    :
+ * | 日期       | 修改人      | 版本号  | 修改内容摘要           |
+ * |------------|-------------|---------|------------------------|
+ * | 2025-01-09 | Liu Jiajun      | v1.0.0  | 初始版本               |
+ * | 2025-04-09 | Liu Jiajun      | v1.1.0  | 修复DMA传输超时问题    |
+ *
+ * 版权声明    : Liu Jiajun HanNan University.
+ ******************************************************************************/
 
 #include <string.h>
 #include "usart2_send.h"
@@ -96,32 +111,8 @@ void USART2_SendEntry(void const * argument)
             DMA_Send_Frame();
         }
 
-        vTaskDelay(12); // 延迟 10ms
+        vTaskDelay(1); // 延迟 10ms
 
     }
     /* USER CODE END USART2_SendEntry */
 }
-
-
-
-//// 数据拼接函数：将帧头、命令码、数据段、帧尾拼接成完整的数据包
-//void Data_Concatenation(RobotArmController_t *tx_data, uint8_t *data, uint16_t data_length)
-//{
-//    // 设置帧头
-//    tx_data->frame_header.sof = 0xA5;                      // 起始字节
-//    tx_data->frame_header.data_length = data_length;        // 数据段长度
-//    tx_data->frame_header.seq = frame_seq++;                      // 包序号
-//    if (frame_seq == 0) frame_seq = 1;  // 防止包序号溢出，最多支持255个包序号
-//
-//    // 计算帧头CRC8
-//    append_CRC8_check_sum((uint8_t *)(&tx_data->frame_header), FRAME_HEADER_LENGTH);  // 添加CRC8校验
-//
-//    // 设置命令码
-//    tx_data->cmd_id = ARM_CONTROLLER_CMD_ID;
-//
-//    // 设置数据段
-//    memcpy(tx_data->data, data, data_length);               // 填充数据段
-//
-//    // 计算帧尾CRC16
-//    append_CRC16_check_sum((uint8_t *)tx_data, FRAME_SIZE);     // 添加CRC16校验
-//}

@@ -3,7 +3,7 @@
 //
 
 #include "main.h"
-#include "../Middlewares/ST/ARM/DSP/Inc/arm_math.h"
+#include "arm_math.h"
 #include "i2c.h"
 #include "Hardware_i2c1.h"
 

@@ -3,7 +3,6 @@
 //
 
 #include "filter.h"
-#include "Hardware_i2c1.h"
 
 /**
  * @brief 初始化滤波器
@@ -142,6 +141,7 @@ float processAngle(AngleFilter *filter, int16_t rawAngle)
    // KalmanFilter kf;
    // KalmanFilter_Init(&kf, 100, 2, 0.1, 0.01);//初始化卡尔曼滤波结构体//写的时候编码器稳定，没有进行精确测量
    // float kalmanfilter_value=KalmanFilter_Update(&kf,medianAverage);
+
     // 应用自适应低通滤波
     return adaptiveLowPassFilter(filter, medianAverage);
 }

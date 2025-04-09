@@ -21,6 +21,7 @@
 #include "cmsis_os.h"
 #include "dma.h"
 #include "i2c.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -60,20 +61,6 @@ void MX_FREERTOS_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-TIM_HandleTypeDef htim2;
-
-void BSP_Delay_Init(void) {
-    __HAL_RCC_TIM2_CLK_ENABLE();
-
-    htim2.Instance = TIM2;
-    htim2.Init.Prescaler = 83;  // (SystemCoreClock / 1000000) - 1;
-    htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-    htim2.Init.Period = 0xFFFFFFFF;
-    htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
-    HAL_TIM_Base_Init(&htim2);
-    HAL_TIM_Base_Start(&htim2);
-}
-
 void delayUs(uint32_t us) {
     taskENTER_CRITICAL();
     uint32_t start = TIM2->CNT;
@@ -82,22 +69,15 @@ void delayUs(uint32_t us) {
         uint32_t current = TIM2->CNT;
         elapsed = (current >= start) ? (current - start) : (0xFFFFFFFF - start + current);
     } while (elapsed < us);
-    HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(GPIOE, GPIO_PIN_8, GPIO_PIN_SET);
     taskEXIT_CRITICAL();
 }
 
 void delay_us_safe(uint32_t us) {
     taskENTER_CRITICAL();
     uint32_t start = TIM2->CNT;
-    while ((TIM2->CNT - start) < us);  //�����ж�ʱ���������
+    while ((TIM2->CNT - start) < us);
     taskEXIT_CRITICAL();
 }
-
-//void delayUs(uint32_t times)
-//{
-//    for(uint32_t j=0;j<10;j++);
-//}
 
 /* USER CODE END 0 */
 
@@ -135,8 +115,9 @@ int main(void)
   MX_I2C1_Init();
   MX_I2C2_Init();
   MX_I2C3_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  BSP_Delay_Init();
+
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in cmsis_os2.c) */
